@@ -279,7 +279,7 @@ class wifijammer:
 
         # We're adding the AP and channel to the deauth list at time of creation rather
         # than updating on the fly in order to avoid costly for loops that require a lock
-        if pkt.haslayer(Dot11):
+        if pkt.haslayer(Dot11) or pkt.haslayer(Dot11FCS):
             if pkt.addr1 and pkt.addr2:
                 pkt.addr1 = pkt.addr1.lower()
                 pkt.addr2 = pkt.addr2.lower()
